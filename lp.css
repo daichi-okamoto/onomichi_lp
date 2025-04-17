@@ -1,0 +1,1839 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #333333;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* ヘッダーCSS */
+.header {
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  @media (min-width: 1279px) {
+    padding: 12px 80px;
+  }
+}
+
+.header__inner {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__nav {
+  display: none;
+
+  @media (min-width: 1280px) {
+    display: block;
+  }
+}
+
+.header__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.fa-bars {
+  font-size: 24px;
+}
+
+.header__link a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 4px 0;
+}
+
+.header__link a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffcc33;
+  transition: all 0.5s ease;
+  transform: translateX(-50%);
+}
+
+.header__link a:hover::after {
+  width: 100%;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__line {
+  background: linear-gradient(to bottom, #ffac07, #fc8518);
+  padding: 8px 27px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fff;
+}
+
+.header__humburger {
+  display: block;
+  cursor: pointer;
+
+  @media (min-width: 1279px) {
+    display: none;
+  }
+}
+
+/* ハンバーガーメニュー */
+.sp-nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 10px);
+  background-color: #fff;
+  z-index: 90;
+  padding: 40px 20px;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.sp-nav.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sp-nav__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.sp-nav__menu li {
+  margin-bottom: 24px;
+}
+
+.sp-nav__menu a {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.fa-xmark {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* FVセクション */
+.fv {
+}
+
+.fv__bg {
+  background-image: url(http://www.lp.okomarigotokaiketsu.site/wp-content/uploads/2025/04/fv__sp.jpg);
+  height: 480px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 580px;
+  }
+
+  @media (min-width: 1025px) {
+    background-image: url(http://www.lp.okomarigotokaiketsu.site/wp-content/uploads/2025/04/fv__pc.jpg);
+    height: 680px;
+  }
+}
+
+.fv__titles {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-block: 46px;
+  max-width: 1280px;
+
+  @media (min-width: 768px) {
+    padding-block: 80px;
+  }
+}
+
+.fv__title {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #1d4694;
+
+  @media (min-width: 768px) {
+    font-size: 48px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 72px;
+  }
+}
+
+.fv__title-2 {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #1d4694;
+  text-decoration: underline;
+  text-decoration-color: #ffcc33;
+  text-decoration-thickness: 20px;
+  text-underline-offset: -12px;
+  letter-spacing: 0.05em;
+
+  @media (min-width: 768px) {
+    text-decoration-thickness: 28px;
+    text-underline-offset: -20px;
+
+    br {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 48px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 72px;
+  }
+}
+
+.fv__title-sm {
+  font-size: 30px;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 48px;
+  }
+}
+
+.fv__text {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #363437;
+  margin-top: 36px;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.6);
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 768px) {
+  .fv__text br:nth-of-type(1),
+  .fv__text br:nth-of-type(3) {
+    display: none;
+  }
+}
+
+.fv__bg-blue {
+  background-color: #1d4694;
+}
+
+.fv__images {
+  display: flex;
+  gap: 0;
+  padding-top: 2px;
+}
+
+.fv__image {
+  width: 24.5%;
+  margin: 0 auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fv__btn {
+  padding: 46px 0;
+}
+
+.btn__line {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #ffac07, #fc8518);
+  display: flex;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 10px;
+  color: #fff;
+  white-space: nowrap;
+  max-width: 574px;
+}
+
+.line__icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line__text {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  white-space: nowrap; /* 改行しない */
+  overflow: hidden; /* はみ出た部分を隠す */
+  text-overflow: ellipsis; /* ...を表示 */
+  max-width: 100%;
+}
+
+/* お悩みセクション */
+.problem {
+  position: relative;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.problem__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3; /* ←ここで透明度を調整（0.0〜1.0） */
+  z-index: 0;
+}
+
+.problem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  z-index: 1;
+}
+
+.problem__bg-gray {
+  position: relative;
+  align-self: flex-end;
+  background-color: #ccd0d3;
+  height: auto;
+  width: 90%;
+  opacity: 1;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 70px 0 120px 0;
+  padding: 48px 20px;
+  clip-path: polygon(
+    60px 0%,
+    /* ← 左上：60px 右にずらす */ 100% 0%,
+    /* ← 右上 */ 100% 100%,
+    /* ← 右下 */ 60px 100%,
+    /* ← 左下を戻して */ 0% calc(100% - 40px),
+    /* ← 左下：斜めに上がる */ 0% 40px /* ← 左上：斜めに下がる */
+  );
+
+  @media (min-width: 1024px) {
+    padding: 90px 100px;
+  }
+}
+
+.problem__bg-gray img {
+  position: absolute;
+  right: -38px;
+  bottom: 0px;
+  width: 96%;
+  height: 44%;
+
+  @media (min-width: 768px) {
+    right: -60px;
+    bottom: 0px;
+    width: 80%;
+    height: 105%;
+  }
+}
+
+.problem__title {
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 48px;
+  }
+}
+
+.problem__lists {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 40px;
+
+  @media (min-width: 768px) {
+    gap: 18px;
+  }
+}
+
+.problem__list {
+  display: flex;
+  gap: 16px;
+}
+
+.problem__list:nth-of-type(4) {
+  width: 76%;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+}
+.problem__list:nth-of-type(5) {
+  width: 72%;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+}
+
+.problem__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #363437;
+}
+
+.fa-circle-check {
+  font-size: 20px;
+  margin-top: 4px;
+}
+
+.problem__text br {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.problem__text-blue {
+  color: #1d4694;
+}
+
+.problem__arrow {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.problem__arrow-image {
+  position: relative;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.problem__arrow-bg {
+  background-color: #1d4694;
+  padding: 10px 30px;
+  position: absolute;
+  top: 50%; /* ← 画像の縦中央 */
+  left: 50%; /* ← 画像の横中央 */
+  transform: translate(-50%, -50%); /* ← 完全中央寄せ */
+  z-index: 3;
+  white-space: nowrap;
+}
+
+.problem__arrow-text {
+  font-size: 19px;
+  color: #fff;
+  text-align: center;
+}
+
+/* 解決セクション */
+.solution {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.solution__inner {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.solution__title {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #1d4694;
+
+  @media (min-width: 768px) {
+    font-size: 48px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 56px;
+  }
+}
+
+/* リスクセクション */
+.risk {
+  position: relative;
+  background-image: url(http://www.lp.okomarigotokaiketsu.site/wp-content/uploads/2025/04/onomichi_lp15-scaled.jpeg);
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  color: #fff;
+  clip-path: polygon(
+    0 0,
+    /* 左上 */ 100% 0,
+    /* 右上 */ 100% 98%,
+    /* 右下のちょい上 */ 50% 100%,
+    /* 真ん中を尖らせる */ 0 98% /* 左下のちょい上 */
+  );
+
+  @media (min-width: 768px) {
+    clip-path: polygon(
+      0 0,
+      /* 左上 */ 100% 0,
+      /* 右上 */ 100% 96%,
+      /* 右下 */ 50% 100%,
+      /* 真ん中を尖らせる */ 0 96% /* 左下 */
+    );
+  }
+  @media (min-width: 1024px) {
+    clip-path: polygon(
+      0 0,
+      /* 左上 */ 100% 0,
+      /* 右上 */ 100% 94%,
+      /* 右下 */ 50% 100%,
+      /* 真ん中を尖らせる */ 0 94% /* 左下 */
+    );
+  }
+  @media (min-width: 1280px) {
+    clip-path: polygon(
+      0 0,
+      /* 左上 */ 100% 0,
+      /* 右上 */ 100% 92%,
+      /* 右下 */ 50% 100%,
+      /* 真ん中を尖らせる */ 0 92% /* 左下 */
+    );
+  }
+}
+
+.risk::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(72, 94, 116, 0.8);
+  z-index: 1;
+}
+
+.risk__inner {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 0;
+}
+
+.risk__lists {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  align-items: center;
+  margin: 40px 0;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.risk__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.risk__list:nth-of-type(2) .risk__list-image {
+  @media (min-width: 1024px) {
+    width: 46%;
+  }
+}
+
+.risk__list-image {
+  width: 56%;
+  margin: 0 auto;
+  display: block;
+}
+
+.risk__text-yellow-sm {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.8;
+  color: #ffcc33;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 32px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 40px;
+  }
+}
+
+.risk__text-yellow-lg {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.8;
+  color: #ffcc33;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 40px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 48px;
+  }
+}
+
+.risk__list-title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.8;
+  color: #fff;
+}
+
+.risk__list-text-yellow {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffcc33;
+}
+
+.risk__text {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 32px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 40px;
+  }
+}
+
+/* 借主セクション */
+.borrower {
+  background-image: url(http://www.lp.okomarigotokaiketsu.site/wp-content/uploads/2025/04/onomichi_lp12.jpg);
+  height: auto;
+  background-size: cover;
+  background-position: right;
+  z-index: 0;
+}
+
+.borrower__inner {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  margin: 0 auto;
+  padding: 32px 0 62px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1060px;
+}
+
+.borrower__title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 40px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 48px;
+  }
+}
+
+.borrower__title-underline {
+  text-decoration: underline;
+  text-decoration-color: #ffcc33;
+  text-decoration-thickness: 20px;
+  text-underline-offset: -13px;
+}
+
+.borrower__text {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: bold;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
+}
+
+.borrower__text br {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.borrower__card {
+  position: relative;
+  background-color: #e3f4ff;
+  border: 1px solid #1d4694;
+  border-radius: 10px;
+  padding: 40px 20px 32px 20px;
+  width: 100%;
+  max-width: 894px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding: 40px 40px 32px 40px;
+  }
+  @media (min-width: 1024px) {
+    padding: 70px 83px 64px;
+  }
+}
+
+.borrower__card .dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #1d4694;
+  border-radius: 50%;
+}
+
+/* 四隅の位置 */
+.dot.top-left {
+  top: 10px;
+  left: 10px;
+
+  @media (min-width: 768px) {
+    top: 20px;
+    left: 20px;
+  }
+  @media (min-width: 1024px) {
+    top: 30px;
+    left: 30px;
+  }
+}
+
+.dot.top-right {
+  top: 10px;
+  right: 10px;
+
+  @media (min-width: 768px) {
+    top: 20px;
+    right: 20px;
+  }
+  @media (min-width: 1024px) {
+    top: 30px;
+    right: 30px;
+  }
+}
+
+.dot.bottom-left {
+  bottom: 10px;
+  left: 10px;
+
+  @media (min-width: 768px) {
+    bottom: 20px;
+    left: 20px;
+  }
+  @media (min-width: 1024px) {
+    bottom: 30px;
+    left: 30px;
+  }
+}
+
+.dot.bottom-right {
+  bottom: 10px;
+  right: 10px;
+
+  @media (min-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+  }
+  @media (min-width: 1024px) {
+    bottom: 30px;
+    right: 30px;
+  }
+}
+
+.borrower__card-title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 32px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 40px;
+  }
+}
+
+.borrower__card-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 16px 0 28px 0;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 24px;
+  }
+}
+
+.borrower__lists {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-top: 0.33px dashed #1d4694;
+  padding-top: 24px;
+}
+
+.borrower__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.borrower_titles {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.borrower__check {
+  font-size: 12px;
+  color: #1d4694;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 24px;
+  }
+}
+
+.borrower__list-title {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #1d4694;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 28px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 32px;
+  }
+}
+
+.borrower__list-text {
+  font-size: 16px;
+  font-weight: medium;
+  line-height: 1.5;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.borrower__list-text-underline {
+  text-decoration: underline;
+  text-decoration-color: #ffcc33;
+  text-decoration-thickness: 6px;
+  text-underline-offset: -4px;
+}
+
+/* CTAセクション */
+
+.cta {
+  background-color: #1d4694;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.cta-text {
+  width: 90%;
+  margin: 0 auto;
+  padding: 40px 0 0 0;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    padding: 50px 0 0 0;
+  }
+  @media (min-width: 1024px) {
+    font-size: 24px;
+    padding: 60px 0 0 0;
+  }
+}
+
+/* サービス紹介セクション */
+.service {
+  background-image: url(http://www.lp.okomarigotokaiketsu.site/wp-content/uploads/2025/04/onomichi_lp11-scaled.jpg);
+  height: auto;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding: 60px 0;
+
+  @media (min-width: 768px) {
+    padding: 80px 0;
+  }
+  @media (min-width: 1024px) {
+    padding: 100px 0;
+  }
+}
+
+.service__inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1096px;
+
+  @media (min-width: 768px) {
+    gap: 60px;
+  }
+  @media (min-width: 1024px) {
+    width: 90%;
+    margin: 0 auto;
+    gap: 80px;
+  }
+  @media (min-width: 1280px) {
+    gap: 100px;
+  }
+}
+
+.service__title {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    br {
+      display: none;
+    }
+    font-size: 40px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 48px;
+  }
+}
+
+.service__lists {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 1280px;
+  @media (min-width: 1024px) {
+    gap: 80px;
+  }
+}
+
+.service__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.service__list-image {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.service__image {
+  position: relative;
+  display: flex;
+  z-index: 1;
+  width: 80%;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+
+  @media (min-width: 1024px) {
+    max-width: 570px;
+    width: 100%;
+    height: 418px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.service__list:nth-child(even) .service__list-image {
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  @media (min-width: 1024px) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.service__list-content {
+  position: relative;
+  width: 80%;
+  text-align: left;
+  background-color: #fff;
+  padding: 58px 13px 30px;
+  margin-top: -10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: 1024px) {
+    width: 68%;
+    height: 438px;
+    margin-top: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .service__list:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .service__list:nth-child(even) .service__image {
+    margin-right: 40px;
+  }
+
+  .service__list:nth-child(odd) .service__image {
+    margin-left: 40px;
+  }
+  .service__list:nth-child(odd) .service__list-content {
+    padding: 68px 36px 56px 74px;
+  }
+  .service__list:nth-child(even) .service__list-content {
+    padding: 68px 74px 56px 36px;
+  }
+}
+
+.service__list:nth-child(odd) .service__list-content {
+  margin-left: auto;
+}
+
+.service__list-num {
+  position: absolute;
+  font-family: "Bellefair", serif;
+  color: #1d4694;
+  opacity: 0.3;
+  top: 10px;
+  right: 20px;
+  font-size: 64px;
+
+  @media (min-width: 1024px) {
+    font-size: 128px;
+    top: 0;
+    right: 20px;
+  }
+}
+
+.service__list-title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #1d4694;
+
+  @media (min-width: 1280px) {
+    font-size: 32px;
+  }
+}
+
+.service__list-desc {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.service__list-list-title {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.underline-yellow {
+  text-decoration: underline;
+  text-decoration-color: #ffcc33;
+  text-decoration-thickness: 6px;
+  text-underline-offset: -4px;
+}
+
+.desc-margin {
+  margin: 0 0 10px 20px;
+}
+
+/* メリットセクション */
+.merit__inner {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  @media (min-width: 768px) {
+    gap: 80px;
+  }
+  @media (min-width: 1024px) {
+    gap: 100px;
+  }
+}
+
+.merit {
+  padding: 60px 0;
+
+  @media (min-width: 768px) {
+    padding: 80px 0;
+  }
+  @media (min-width: 1024px) {
+    padding: 100px 0;
+  }
+}
+
+.merit__lists {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 60px;
+  }
+}
+
+.merit__list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.merit__num {
+  position: absolute;
+  font-family: "Rochester", cursive;
+  color: #363437;
+  opacity: 0.5;
+  top: -10px;
+  left: 20px;
+  font-size: 36px;
+  transform: rotate(-20deg);
+}
+
+.merit__image {
+  width: 40%;
+  margin: 0 auto;
+  display: block;
+}
+
+.merit__list-title {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #1d4694;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 28px;
+  }
+}
+
+.merit__text {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
+}
+
+/* サービスの流れセクション */
+.service-flow {
+  background-image: url(http://www.lp.okomarigotokaiketsu.site/wp-content/uploads/2025/04/onomichi_lp11-1-scaled.jpg);
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.service-flow__title {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  padding: 48px 0;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+    padding: 60px 0;
+  }
+  @media (min-width: 1024px) {
+    font-size: 48px;
+    padding: 100px 0;
+  }
+}
+
+.service-flow__inner {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row; /* 横並びにする（2カラム） */
+  gap: 16px;
+  align-items: stretch;
+  max-width: 1280px;
+}
+
+.service-flow__line {
+  display: flex;
+  flex-direction: column; /* 番号とラインを縦並びに */
+  align-items: center;
+  width: 20%; /* 左カラムの幅 */
+}
+
+.service-flow__num {
+  font-size: 24px;
+  font-family: "Bellefair", serif;
+  font-weight: regular;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #1d4694;
+  color: #fff;
+  padding: 8px 14px;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+    padding: 10px 16px;
+  }
+}
+
+/* 番号＋線のセット */
+.service-flow__step {
+  display: flex;
+  flex-direction: column; /* 番号とラインを縦並びに */
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1; /* .service-flow__menu と高さを揃える */
+}
+
+.service-flow-num-line {
+  width: 2.5px;
+  height: 100%;
+  background-color: #363437;
+}
+
+.service-flow__menus {
+  display: flex;
+  flex-direction: column;
+  width: 82%;
+}
+
+.service-flow__menu {
+  height: 423px; /* 高さを固定 */
+
+  @media (min-width: 1024px) {
+    display: flex;
+    gap: 48px;
+  }
+}
+
+.service-flow__menu:last-of-type .service-flow__menu-image {
+  @media (min-width: 1024px) {
+    width: 380px;
+  }
+}
+
+.service-flow__menu-image {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+
+  @media (min-width: 1024px) {
+    width: 100%;
+    height: 80%;
+    flex: 1; /* 横並びにするための設定 */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.service-flow__menu-title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #1d4694;
+  margin-top: 8px;
+
+  @media (min-width: 768px) {
+    margin-top: 6px;
+    font-size: 28px;
+  }
+  @media (min-width: 1024px) {
+    margin-top: 4px;
+    font-size: 32px;
+  }
+  @media (min-width: 1280px) {
+    margin-top: 2px;
+    font-size: 40px;
+  }
+}
+
+.service-flow__menu-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0;
+
+  @media (min-width: 768px) {
+    margin: 16px 0;
+  }
+  @media (min-width: 1024px) {
+    font-weight: bold;
+    margin: 24px 0;
+  }
+  @media (min-width: 1280px) {
+    font-weight: bold;
+    margin: 32px 0;
+  }
+}
+
+/* 料金プランセクション */
+.price {
+  background-color: #f8f7f3;
+  height: auto;
+  width: 100%;
+  padding: 60px 0;
+
+  @media (min-width: 768px) {
+    padding: 80px 0;
+  }
+  @media (min-width: 1024px) {
+    padding: 100px 0;
+  }
+}
+
+.price__inner {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.price__title {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 48px;
+  }
+}
+
+.price__lists {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 10px;
+  }
+  @media (min-width: 1280px) {
+    gap: 40px;
+  }
+}
+
+.price__list {
+  background-color: #fff;
+  height: auto;
+  width: 100%;
+  padding: 30px;
+  box-shadow: 1.66px 1.66px 1.66px rgba(0, 0, 0, 0.1);
+}
+
+.price__lists .price__list:nth-of-type(1) {
+  border-top: 8px solid #cccccc;
+}
+.price__lists .price__list:nth-of-type(2) {
+  border-top: 8px solid #e3f4ff;
+}
+.price__lists .price__list:nth-of-type(3) {
+  border-top: 8px solid #1d4694;
+}
+
+.price__list-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  border-bottom: 1px solid #363437;
+}
+
+.price__list-title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.price__list-text {
+  font-size: 32px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.price__list-text-lg {
+  font-size: 48px;
+}
+
+.price__list-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.fa-check {
+  font-size: 20px;
+  margin-right: 24px;
+}
+
+.price__list-desc-item {
+  display: flex;
+  align-items: center;
+}
+
+.price__list-desc-item-text {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: medium;
+
+  @media (min-width: 1024px) {
+    text-align: center;
+  }
+}
+
+.price__list-desc-note {
+  margin-top: 30px;
+}
+
+.price__list-daikou {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-top: 32px;
+}
+
+.price__list-desc-item {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.price__bank {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1160px;
+  padding: 20px 10px;
+
+  @media (min-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+.price__bank-image {
+  width: 30%;
+  display: block;
+
+  @media (min-width: 768px) {
+    width: 100px;
+  }
+}
+
+.price__bank-text {
+  font-size: 16px;
+  line-height: 1.6;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    br {
+      display: none;
+    }
+  }
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
+}
+
+.price__bank-text-lg {
+  font-size: 24px;
+  line-height: 1.6;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+}
+
+/* faqセクション */
+.faq__inner {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1078px;
+  padding: 60px 0;
+
+  @media (min-width: 768px) {
+    padding: 80px 0;
+  }
+  @media (min-width: 1024px) {
+    padding: 100px 0;
+  }
+}
+
+.faq__title {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 24px;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 48px;
+  }
+}
+
+.faq__text {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: bold;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px dashed #cccccc;
+
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
+  @media (min-width: 1024px) {
+    gap: 32px;
+  }
+}
+
+.faq__list-question {
+  background-color: #e0f2ff;
+  padding: 20px 12px;
+  border-radius: 42px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.faq__list-q {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  background-color: #1d4694;
+  color: #fff;
+  padding: 8px 13px;
+  border-radius: 50%;
+}
+
+.faq__list-question-title {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #1d4694;
+}
+
+.faq__list-answer {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 0 12px;
+
+  @media (min-width: 768px) {
+    align-items: center;
+  }
+}
+
+.faq__list-a {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #1d4694;
+  padding: 8px 13px;
+  border: 1px solid #1d4694;
+  border-radius: 50%;
+}
+
+.faq__list-answer-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* CTAセクション */
+.cta-section {
+  background-image: url(http://www.lp.okomarigotokaiketsu.site/wp-content/uploads/2025/04/onomichi_lp10-scaled.jpg);
+  height: auto;
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-section__inner {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px 0;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.cta-section__left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: 1024px) {
+    flex: 1;
+    width: 50%;
+    gap: 32px;
+  }
+}
+
+.cta-section__title {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cta-section__text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.cta-section__btn {
+  width: 100%;
+}
+
+.cta-section__image {
+  @media (min-width: 1024px) {
+    width: 40%;
+    margin-left: auto;
+  }
+}
+
+/* フッターセクション */
+.footer__inner {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 48px 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 40px auto;
+    gap: 40px;
+    border-bottom: 1px solid #363437;
+  }
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid #363437;
+  padding-bottom: 48px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    border-bottom: none;
+    margin-top: 40px;
+  }
+}
+
+.footer__text {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #363437;
+  margin-bottom: 16px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+  @media (min-width: 1024px) {
+    margin-bottom: 32px;
+  }
+}
+
+.footer__logo {
+  /* width: 100%; */
+  max-width: 200px;
+  margin: 0 auto;
+  display: block;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+    margin: 0;
+    display: block;
+  }
+}
